@@ -1,0 +1,40 @@
+<div class="form-container">
+    <form (ngSubmit)="onSubmit()" #formulaireForm="ngForm">
+      <h2>🌟 Déterminez votre Profil Professionnel:: 🌟</h2>
+  
+      <label for="id_candidat">ID Candidat :</label>
+      <input type="text" id="id_candidat" name="id_candidat" [(ngModel)]="formulaireData.id_candidat" required #id_candidat="ngModel"><br><br>
+    
+      <label for="date_naissance">Date de naissance :</label>
+      <input type="date" id="date_naissance" name="date_naissance" [(ngModel)]="formulaireData.date_naissance" required #date_naissance="ngModel"><br><br>
+    
+      <label for="niv_etude">Niveau d'étude :</label>
+      <input type="text" id="niv_etude" name="niv_etude" [(ngModel)]="formulaireData.niv_etude" required #niv_etude="ngModel"><br><br>
+    
+      <label for="genre">Genre :</label>
+      <select id="genre" name="genre" [(ngModel)]="formulaireData.genre" required #genre="ngModel">
+        <option value="homme">Homme</option>
+        <option value="femme">Femme</option>
+        <option value="autre">Autre</option>
+      </select><br><br>
+    
+      <label for="mot_pass">Mot de passe :</label>
+      <input type="password" id="mot_pass" name="mot_pass" [(ngModel)]="formulaireData.mot_pass" required #mot_pass="ngModel"><br><br>
+    
+      <label for="societe_actuelle">Société actuelle :</label>
+      <input type="text" id="societe_actuelle" name="societe_actuelle" [(ngModel)]="formulaireData.societe_actuelle" required #societe_actuelle="ngModel"><br><br>
+    
+      <label for="poste_actuel">Poste actuel :</label>
+      <input type="text" id="poste_actuel" name="poste_actuel" [(ngModel)]="formulaireData.poste_actuel" required #poste_actuel="ngModel"><br><br>
+    
+      <label for="societe_souhaite">Société souhaitée :</label>
+      <input type="text" id="societe_souhaite" name="societe_souhaite" [(ngModel)]="formulaireData.societe_souhaite" required #societe_souhaite="ngModel"><br><br>
+    
+      <label for="poste_souhaite">Poste souhaité :</label>
+      <input type="text" id="poste_souhaite" name="poste_souhaite" [(ngModel)]="formulaireData.poste_souhaite" required #poste_souhaite="ngModel"><br><br>
+    <hr>
+      <button type="submit" [disabled]="!formulaireForm.form.valid">CONFIRMER</button> 
+      <button type="reset" class="btn-cancel">ANNULER</button>
+    </form>
+  </div>
+  

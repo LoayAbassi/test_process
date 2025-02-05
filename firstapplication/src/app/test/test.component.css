@@ -1,0 +1,40 @@
+*
+
+
+.chronometre-container {
+    text-align: center;
+}
+
+#display {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #197ae9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:hover {
+    background-color: #155a8a;
+    transform: scale(1.05);
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 24px;
+    color: red;
+    display: none;
+}

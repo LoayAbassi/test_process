@@ -1,0 +1,78 @@
+<script src="assets/js/votre-script.js"></script> 
+<br>
+ <h1>Prêt à découvrir des secrets sur vous-même ? Lancez le test maintenant !</h1>
+<div class="chronometre-container">
+    <div id="display">00:00:00</div>
+    <div>
+        <button id="startStopButton">Démarrer</button>
+        <button id="resetButton">Réinitialiser</button>
+    </div>
+    <div id="message">Le test est terminé</div>
+</div>
+
+<script>
+    let timer;
+    let isRunning = false;
+    let seconds = 0;
+    let minutes = 0;
+    let hours = 0;
+
+    const startStopButton = document.getElementById("startStopButton");
+    const resetButton = document.getElementById("resetButton");
+    const display = document.getElementById("display");
+    const message = document.getElementById("message");
+
+    function formatTime() {
+        return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+
+    function updateDisplay() {
+        display.textContent = formatTime();
+    }
+
+    function startStopTimer() {
+        if (isRunning) {
+            clearInterval(timer);
+            startStopButton.textContent = "Démarrer";
+        } else {
+            timer = setInterval(function() {
+                seconds++;
+                if (seconds === 60) {
+                    seconds = 0;
+                    minutes++;
+                }
+                if (minutes === 60) {
+                    minutes = 0;
+                    hours++;
+                }
+
+                if (minutes === 45) {
+                    clearInterval(timer); // Arrêter après 45 minutes
+                    startStopButton.textContent = "Démarrer";
+                    isRunning = false;
+                    message.style.display = 'block'; // Afficher le message
+                }
+
+                updateDisplay();
+            }, 1000);
+            startStopButton.textContent = "Pause";
+        }
+
+        isRunning = !isRunning;
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
+        updateDisplay();
+        startStopButton.textContent = "Démarrer";
+        isRunning = false;
+        message.style.display = 'none'; // Cacher le message
+    }
+
+    startStopButton.addEventListener("click", startStopTimer);
+    resetButton.addEventListener("click", resetTimer);
+</script> 
+

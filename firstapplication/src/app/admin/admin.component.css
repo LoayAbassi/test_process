@@ -1,0 +1,176 @@
+/* Conteneur principal pour centrer le formulaire */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* Centre verticalement sur toute la hauteur */
+    padding: 20px;
+}
+
+/* Styles du formulaire */
+.form {
+    position: relative;
+    padding:20px;
+    border-radius:40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width:40%;
+    max-width: 600px;
+    border: 3px solid #007bff; /* Contour animé */
+    animation: slideIn 0.5s ease-out, borderColorChange 3s infinite alternate;
+    background-color: #ffffff; /* Fond blanc */
+}
+
+/* Animation du contour du formulaire */
+@keyframes borderColorChange {
+    0% { border-color: #007bff; }
+    50% { border-color: #00c3ff; }
+    100% { border-color: #007bff; }
+}
+
+/* Animation d'apparition */
+@keyframes slideIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Titre du formulaire */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Groupes de champs */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Labels */
+label {
+    font-size: 18px;
+    color: #5f3131;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Champs de saisie */
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Effet sur les champs lorsqu'ils sont en focus */
+input:focus {
+    border-color: #007bff;
+    background-color: #e9f5ff;
+    outline: none;
+    transform: scale(1.02);
+}
+
+/* Conteneur des boutons */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Bouton Confirmer */
+.btn-submit {
+    flex: 1;
+    padding: 12px;
+    background-color: #2946ca;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: buttonGlow 2s infinite alternate;
+}
+
+/* Effet de survol du bouton Confirmer */
+.btn-submit:hover {
+    background-color: #223db4;
+    transform: scale(1.05);
+}
+
+/* Animation de pulsation du bouton Confirmer */
+@keyframes buttonGlow {
+    0% { box-shadow: 0 0 10px rgba(69, 98, 194, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(12, 96, 173, 0.9); }
+}
+
+/* Bouton Annuler */
+.btn-cancel {
+    flex: 1;
+    padding: 12px;
+    background-color: #e2c26a;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Effet de survol du bouton Annuler */
+.btn-cancel:hover {
+    background-color: #f1c063c5;
+    animation: shake 0.4s ease-in-out;
+}
+
+/* Animation shake (secousse) pour le bouton Annuler */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Désactiver les boutons quand le formulaire est invalide */
+button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+    animation: none;
+}
+
+/* Style pour les erreurs de validation */
+input:invalid {
+    border-color: #e74c3c;
+}
+
+input:invalid:focus {
+    background-color: #fce8e6;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .form {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .btn-submit,
+    .btn-cancel {
+        width: 100%;
+    }
+}

@@ -1,0 +1,256 @@
+/* Importation de la police Poppins depuis Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400%3B500%3B600&display=swap%27%29%3B");
+
+/* Réinitialisation des marges et paddings, application de la police globale et box-sizing */
+*{ 
+    padding:0; 
+    margin: 0; 
+    font-family:'Poppins',sans-serif; 
+    box-sizing: border-box;
+} 
+
+/* Style du body avec un arrière-plan en dégradé et une hauteur pleine page */
+body {   
+    margin: 0;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgb(219, 190, 146), #87CEFA); /* Dégradé de couleurs */
+    background-size: 100% 100%; /* Couvre toute la page */
+    background-position: top center; /* Positionnement du dégradé */
+    background-repeat: no-repeat; /* Empêche la répétition */
+    background-attachment: fixed; /* Fixe le fond lors du défilement */
+}
+
+/* Style de la barre de navigation */
+nav { 
+    width: 100%; 
+    height: 10vh; 
+    position: sticky; /* Reste en haut lors du défilement */
+} 
+
+/* Conteneur de la navigation */
+.nav-container {  
+    width: 100%; 
+    height: 10vh; 
+    display: flex; 
+    justify-content: space-around; /* Répartition des éléments */
+    align-items: center;
+} 
+
+/* Style du logo */
+.logo { 
+    color: rgb(0, 102, 255); /* Couleur du texte */
+    font-size: 2rem; /* Taille du texte */
+    font-weight: bold; /* Texte en gras */
+    border-bottom: 4px solid red; /* Ligne sous le logo */
+    display: inline-block; 
+    line-height: 1; 
+    padding-bottom: 2px; 
+    margin-left: -200px;
+} 
+
+/* Style du menu déroulant */
+.drondown {
+    background-color: #f8f8f8;
+    width: 200px;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Animation d'apparition */
+}
+
+/* Affichage du menu lorsqu'il est actif */
+.drondown.show {
+    opacity: 1;
+}
+
+/* Conteneur des liens de navigation */
+.links {
+    display: flex;
+    flex-direction: row; /* Alignement horizontal */
+    gap: 20px; /* Espacement entre les liens */
+    justify-content: center;
+}
+
+/* Style des liens */
+.link a {
+    display: block;
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* Effet au survol des liens */
+.link:hover a {
+    color: #007bff;
+}
+
+/* Style du bouton de fermeture */
+.cancel {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 15px;
+    cursor: pointer;
+    color: red;
+    transition: color 0.3s;
+}
+
+/* Effet au survol du bouton de fermeture */
+.cancel:hover {
+    color: darkred;
+}
+
+/* Responsivité : adaptation aux petits écrans */
+@media (max-width: 768px) {
+    .drondown {
+        width: 100%; /* Largeur complète */
+        padding: 10px;
+    }
+    .links {
+        flex-direction: column; /* Empilement vertical des liens */
+        gap: 15px;
+    }
+    .link {
+        width: 100%; /* Liens en pleine largeur */
+    }
+} 
+
+/* Style du conteneur principal */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 80vw;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Animation de l'image */
+.image {
+    width: 350px;
+    height: auto;
+    margin-right: 40px;
+    animation: slideInLeft 1.5s ease-out infinite alternate;
+}
+
+/* Image interne */
+.imgee {
+    width: 100%;
+    height: auto; 
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+/* Contenu textuel */
+.content {
+    max-width: 500px;
+}
+
+/* Style des titres */
+h1 {
+    font-size: 2.5em;
+    color: #003366;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Style des paragraphes */
+p {
+    font-size: 1.2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Bouton d'action */
+.start-button {
+    display: block;
+    width: 200px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: #003366;
+    color: #fff;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Effet au survol du bouton */
+.start-button:hover {
+    background-color: #005599;
+}
+
+/* Animation de l'image */
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-250px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+/* Liens sociaux */
+.social-links a {
+    color: #1a1a1a; /* Texte bien contrasté */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Effet au survol */
+.social-links a:hover {
+    color: #ff8c00; /* Orange pour un bel effet */
+}
+
+/* Icônes */
+.social-links img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+}
+
+/* Conteneur des liens sociaux */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+/* Style des liens */
+.social-links a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Style des images */
+.social-links img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Effet au survol */
+.social-links a:hover {
+    color: #f1c40f;
+}
+
+.social-links a:hover img {
+    transform: scale(1.1);
+} 
+
