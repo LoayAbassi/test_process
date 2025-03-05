@@ -66,19 +66,29 @@ const verifyEmailService= async(data)=>{
         verificationTokenExpiresAt: {$gt: Date.now()}
     });
     if (!user){
-        return {
-            success:false,
-            message:"Invalid or expired verification code"
-        }
+        throw new Error("invalid or expired code");
+
     }
     user.isVerified = true;
     user.verificationToken = undefined; // no need to keep them in db
     user.verificationTokenExpiresAt = undefined;
+    await user.save();
     sendEmail(user.email, "Welcome", "welcome", {name:user.prenom});
+
+    return {
+        success: true,
+        message:"email verified successfully",
+        user:{
+            ...user._doc,
+            password:undefined
+        }
+    }
 };
 
 module.exports = {
     signupService,
+    verifyEmailService,
+
 }
 
 

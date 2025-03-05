@@ -11,13 +11,12 @@ const signup = async(req,res)=>{
     }
 }
 
-const verifyEmail = (req, res)=>{
+const verifyEmail = async(req, res)=>{
     try {
-        const result = verifyEmailService(req.body);
-        
+        const result = await verifyEmailService(req.body);
         res.status(201).json(result)
     } catch (error) {
-        
+        res.status(400).json({success:false ,error:error.message})
     }
 }
 
@@ -31,7 +30,8 @@ const logout = async(req,res)=>{
 module.exports = {
     signup,
     login,
-    logout
+    logout,
+    verifyEmail
 }
 
 

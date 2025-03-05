@@ -95,7 +95,37 @@ const generateEmailTemplate = (emailType, data) => {
         </html>
         `;
     }else if (emailType === "welcome"){
-
+        return `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Welcome to Cofat Group</title>
+            </head>
+            <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+                <div style="background: linear-gradient(to right, #4CAF50, #45a049); padding: 20px; text-align: center;">
+                    <h1 style="color: white; margin: 0;">Welcome to Cofat Group!</h1>
+                </div>
+                <div style="background-color: #f9f9f9; padding: 20px; border-radius: 0 0 5px 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                    <p>Hello,</p>
+                    <p>We're excited to welcome you to Cofat Group! We're thrilled to have you on board and look forward to helping you achieve your goals.</p>
+                    <div style="text-align: center; margin: 30px 0;">
+                        <div style="background-color: #4CAF50; color: white; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; display: inline-block; font-size: 30px;">
+                            🎉
+                        </div>
+                    </div>
+                    <p>Your journey with Cofat Group starts now, and we’re here to support you every step of the way. We encourage you to explore our platform and take advantage of all the resources available to you.</p>
+                    <p>For any questions or assistance, feel free to reach out to our support team anytime.</p>
+                    <p>Once again, welcome to the team! We can’t wait to see all that you accomplish with us.</p>
+                    <p>Best regards,<br>The Cofat Group Team</p>
+                </div>
+                <div style="text-align: center; margin-top: 20px; color: #888; font-size: 0.8em;">
+                    <p>This is an automated message, please do not reply to this email.</p>
+                </div>
+            </body>
+            </html>
+        `;
     } else{
         return "<p>Invalid email type.</p>";
     }
